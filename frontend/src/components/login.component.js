@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const CLIENT_ID = '801995831613-ddtfhtnc7vlvepcuk7hb2hdqkb98fehe.apps.googleusercontent.com';
 
+const PORT=process.env.PORT
 class Login extends Component{
   constructor() {
     super();
@@ -21,7 +22,8 @@ class Login extends Component{
   
   handleSubmit=(e)=>{
     e.preventDefault();
-    axios.post('http://localhost:300/validate',this.state)
+    console.log(PORT)
+    axios.post("http://localhost:"+PORT+"/validate",this.state)
     .then(res=>{if(res.data.validated){this.props.changeEmail(this.state.email);sessionStorage.setItem('email', this.state.email);sessionStorage.setItem('id',res.data.id);this.props.history.push('/user')}else{console.log('unable to submit,try again later'+res.data.error)}})
 
   }
