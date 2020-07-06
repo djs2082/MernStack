@@ -26,7 +26,7 @@ class SignUP extends Component{
             alert('both passwords do not match')
             return null;
         }
-        axios.post('http://localhost:300/add',this.state)
+        axios.post('/add',this.state)
         .then(res=>{if(res.data){this.props.history.push('/')}else{console.log('unable to submit,try again later')}})
       }
 

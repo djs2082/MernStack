@@ -23,7 +23,7 @@ class Login extends Component{
   handleSubmit=(e)=>{
     e.preventDefault();
     console.log(PORT)
-    axios.post("http://localhost:"+PORT+"/validate",this.state)
+    axios.post("/validate",this.state)
     .then(res=>{if(res.data.validated){this.props.changeEmail(this.state.email);sessionStorage.setItem('email', this.state.email);sessionStorage.setItem('id',res.data.id);this.props.history.push('/user')}else{console.log('unable to submit,try again later'+res.data.error)}})
 
   }

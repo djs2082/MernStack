@@ -38,7 +38,7 @@ class Add extends Component{
 
       handleSubmit=(e)=>{
         e.preventDefault();
-        axios.post('http://localhost:300/todos/add',this.state)
+        axios.post('/todos/add',this.state)
         .then(res=>{if(res.data.added){console.log(res.message);alert('task added');this.props.history.push('/user')}else{console.log(res.error+' unable to submit,try again later'+res.error)}})
 
       }

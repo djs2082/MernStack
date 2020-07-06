@@ -9,13 +9,13 @@ class Tasks extends Component
   }
   
     componentDidMount(){
-        axios.get('http://localhost:300/todos/get/'+sessionStorage.getItem('email'))
+        axios.get('/todos/get/'+sessionStorage.getItem('email'))
          .then(response => {console.log(response);this.setState({tasks:response.data})})
          .catch(error => {console.log(error)})
     }
     deleteTodo=(e)=>{
         const id=e.target.id;
-        axios.delete('http://localhost:300/todos/'+id)
+        axios.delete('/todos/'+id)
          .then(response => {console.log(response);this.setState({tasks: this.state.tasks.filter(el => el._id !== id)})})
          .catch(error => {console.log(error)})
     }

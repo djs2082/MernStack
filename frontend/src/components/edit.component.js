@@ -11,7 +11,7 @@ class Edit extends Component{
     }
     componentDidMount=()=>{
         let id=this.props.match.params.id;
-        axios.get('http://localhost:300/todos/'+id)
+        axios.get('/todos/'+id)
         .then(response => {var dt=response.data.last_date;dt=new Date(dt); var dtt=dt.getDate();var mt=dt.getMonth()+1;   var mt = ("0" + mt).slice(-2)  ;var yr=dt.getFullYear(); var ld=yr+'-'+mt+'-'+dtt;this.setState({'task':response.data.task,'last_date':ld});})
         .catch(error => {console.log(error)})
 
@@ -39,7 +39,7 @@ class Edit extends Component{
         this.setState({
             'last_date':last_date
         },function(){
-            axios.post('http://localhost:300/todos/'+id,this.state)
+            axios.post('/todos/'+id,this.state)
             .then(res=>{if(res.data.edited){alert('task edited');this.props.history.push('/user')}else{console.log(res.error+' unable to edit,try again later')}})
 
         })
