@@ -1,5 +1,5 @@
 const router=require('express').Router();
-const model_path=process.env.MODEL_PATH
+const model_path='../models/'
 let todos=require(model_path+'todos.model')
 
 

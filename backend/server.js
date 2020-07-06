@@ -6,7 +6,7 @@ require('dotenv').config()
 
 const app=express()
 const port=process.env.PORT || 500
-const uri=process.env.MONGO_URI
+const uri='mongodb+srv://sggs:sggs@mycluster-ssb6s.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority';
 
 app.use(cors())
 app.use(express.json())
@@ -21,7 +21,7 @@ connection.once('open',()=>{
     console.log('Mongo Connection established')
 })
 
-route_path=process.env.ROUTE_PATH
+route_path='./routes/'
 
 var todos=require(route_path+'todos')
 var users=require(route_path+'users')

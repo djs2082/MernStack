@@ -1,5 +1,5 @@
 const router=require('express').Router();
-const model_path=process.env.MODEL_PATH
+const model_path='../models/'
 let users=require(model_path+'users.model')
 
 router.route('/add').post(function(req,res){
